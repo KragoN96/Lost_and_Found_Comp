@@ -1,6 +1,6 @@
 # Berries_Comp.
 
-                                        --> (Sign Up -- -- --
+                                        --> Sign Up -- -- --
                                         |                   |
 Frontend Order --> home-page-main.html  |                   ----> login-page.html --> home-page.html
                                         |                   |
