@@ -6,6 +6,7 @@ import HomePage from './pages/home-page-main';
 import About from './pages/about-page';
 import ForgotPassword from './pages/forgot-password';
 import Register from './pages/register'
+import Donations from "./pages/donations";
 
 
 function App(){
@@ -21,6 +22,7 @@ function App(){
         <Route path="/about" element={<About />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/donations" element={<Donations />} />
 
 
         {/* 404 Page not found */}
