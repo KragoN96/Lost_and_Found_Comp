@@ -1,18 +1,27 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import {useEffect} from 'react'
+import { useEffect } from 'react';
 import Login from './pages/login';
 import Home from './pages/home-page';
 import HomePage from './pages/home-page-main';
 import About from './pages/about-page';
 import ForgotPassword from './pages/forgot-password';
-import Register from './pages/register'
+import Register from './pages/register';
 
+function App() {
+  useEffect(() => {
+    // Track user IP when app loads
+    fetch('http://localhost:5000/api/track-ip')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('✓ User tracked:', data);
+      })
+      .catch((err) => console.error('Error tracking IP:', err));
+  }, []);
 
-function App(){
-  return(
+  return (
     <Router>
       <Routes>
-      {/* Redirect root to home page */}
+        {/* Redirect root to home page */}
         <Route path="/" element={<Navigate to="/home" replace />} />
 
         <Route path="/login" element={<Login />} />
@@ -22,32 +31,11 @@ function App(){
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
 
-
-        {/* 404 Page not found */}
-        <Route path="*" element={<Navigate to ="/home" replace />} />
+        {/* 404 - redirect any unknown routes */}
+        <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </Router>
-
   );
-
-
-function App() {
-  useEffect(() => {
-    // Track user IP when app loads
-    fetch('http://localhost:5000/api/track-ip')
-      .then(res => res.json())
-      .then(data => {
-        console.log('✓ User tracked:', data);
-      })
-      .catch(err => console.error('Error:', err));
-  }, []);
-
-  return (
-    <div className="App">
-      {/* Your existing content */}
-    </div>
-  );
-
-}}
+}
 
 export default App;
