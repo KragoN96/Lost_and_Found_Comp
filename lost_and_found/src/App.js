@@ -4,6 +4,8 @@ import Login from './pages/login';
 import Home from './pages/home-page';
 import HomePage from './pages/home-page-main';
 import About from './pages/about-page';
+import Contact from './pages/contact-page';
+import News from './pages/news-page';
 import ForgotPassword from './pages/forgot-password';
 import Register from './pages/register'
 
@@ -18,13 +20,15 @@ function App(){
         <Route path="/login" element={<Login />} />
         <Route path="/home-page" element={<Home />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about-page" element={<About />} />
+        <Route path="/contact-page" element={<Contact />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/news-page" element={<News />} />
 
 
         {/* 404 Page not found */}
-        <Route path="*" element={<Navigate to ="/home" replace />} />
+        <Route path="*" element={<Navigate to ="/home-page" replace />} />
       </Routes>
     </Router>
 
